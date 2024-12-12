@@ -6,8 +6,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class CategoriaAdapter(private val categorias: List<String>) :
-    RecyclerView.Adapter<CategoriaAdapter.CategoriaViewHolder>() {
+class CategoriaAdapter(
+    private val categorias: List<String>,
+    private val onCategoriaClick: (String) -> Unit // Listener para clics
+) : RecyclerView.Adapter<CategoriaAdapter.CategoriaViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoriaViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -26,6 +28,9 @@ class CategoriaAdapter(private val categorias: List<String>) :
 
         fun bind(nombreCategoria: String) {
             tvNombreCategoria.text = nombreCategoria
+            itemView.setOnClickListener {
+                onCategoriaClick(nombreCategoria) // Llamar al listener con la categoría seleccionada
+            }
         }
     }
 }

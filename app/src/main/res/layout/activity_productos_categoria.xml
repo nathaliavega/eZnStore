@@ -18,9 +18,9 @@
         android:fontFamily="sans-serif-medium"
         android:textStyle="bold" />
 
-    <!-- RecyclerView para mostrar las categorías -->
+    <!-- RecyclerView para mostrar los productos -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewCategorias"
+        android:id="@+id/recyclerViewProductosCategoria"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_below="@id/tvTituloCategoria"

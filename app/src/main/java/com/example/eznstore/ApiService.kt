@@ -45,4 +45,12 @@ interface ApiService {
      */
     @GET("products/categories")
     fun obtenerCategorias(): Call<List<String>>
+
+    /**
+     * Método para obtener productos por categoría.
+     * @param categoria El nombre de la categoría.
+     * @return Un objeto [Call] que retorna una lista de [Producto] de la categoría especificada.
+     */
+    @GET("products/category/{categoria}")
+    fun obtenerProductosPorCategoria(@Path("categoria") categoria: String): Call<List<Producto>>
 }

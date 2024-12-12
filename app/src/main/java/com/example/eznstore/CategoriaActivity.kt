@@ -50,8 +50,14 @@ class CategoriaActivity : AppCompatActivity() {
         apiService.obtenerCategorias().enqueue(object : Callback<List<String>> {
             override fun onResponse(call: Call<List<String>>, response: Response<List<String>>) {
                 if (response.isSuccessful) {
-                    response.body()?.let {
-                        adapter = CategoriaAdapter(it)
+                    response.body()?.let { categorias ->
+                        // Configurar el adaptador con un listener para los clics
+                        adapter = CategoriaAdapter(categorias) { categoria ->
+                            // Navegar a ProductosCategoriaActivity al hacer clic en una categoría
+                            val intent = Intent(this@CategoriaActivity, ProductosCategoriaActivity::class.java)
+                            intent.putExtra("CATEGORIA", categoria)
+                            startActivity(intent)
+                        }
                         recyclerView.adapter = adapter
                     }
                 } else {

@@ -15,6 +15,12 @@
         android:theme="@style/Theme.EZnStore"
         tools:targetApi="31">
         <activity
+            android:name=".ProductosCategoriaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProductosCategoria"
+            android:exported="false" />
+        <activity
             android:name=".CarritoActivity"
             android:exported="false" />
         <activity
